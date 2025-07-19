@@ -3,14 +3,25 @@
 <head>
   <script>
     const path = window.location.pathname;
-    if (path.startsWith('/ru/') {
-      window.location.href = '/ru/index.html';
-    } else {
-      window.location.href = '/en/index.html';
+    const segments = path.split('/').filter(Boolean);
+    
+    // Для главной страницы
+    if (segments.length === 0 || segments[0] !== 'en' && segments[0] !== 'ru') {
+      const lang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+      window.location.href = `/${lang}/index.html`;
+    }
+    // Для вложенных страниц
+    else {
+      const [lang, ...rest] = segments;
+      if (lang === 'en' || lang === 'ru') {
+        document.write(`<base href="/${lang}/">`);
+      } else {
+        window.location.href = `/en/${path}`;
+      }
     }
   </script>
 </head>
 <body>
-  Redirecting...
+  Loading...
 </body>
 </html>
