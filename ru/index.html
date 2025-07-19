@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ресторан Baia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/shared/styles/main.css">
+</head>
+<body class="bg-white">
+    <!-- Шапка -->
+    <header class="py-8 px-4 md:px-8 lg:px-16 xl:px-32">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="logo text-3xl md:text-4xl font-medium mb-4">БАЙЯ</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto">
+                Аутентичная итальянская кухня с современными нотками из самых свежих сезонных ингредиентов.
+            </p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <a href="#contact" class="px-6 py-2 border border-gray-800 text-gray-800 hover:bg-gray-800 hover:text-white transition duration-300">Резервация</a>
+                <a href="#menu-nav" class="px-6 py-2 bg-gray-800 text-white hover:bg-gray-700 transition duration-300">Меню</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="w-full h-64 md:h-96 bg-gray-100 overflow-hidden mb-12">
+        <img src="/shared/img/intro.avif" alt="Интерьер ресторана" class="w-full h-full object-cover object-center">
+    </div>
+
+    <!-- Навигация по меню -->
+    <div id="menu-nav" class="sticky top-0 bg-white z-10 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 md:px-8 lg:px-16">
+            <nav class="flex overflow-x-auto py-4 space-x-6 md:space-x-8">
+                <div class="flex space-x-4 md:space-x-8 mr-auto">
+                    <button class="category-btn whitespace-nowrap active" data-category="sushi">СУШИ, ПОКЕ-МЕНЮ</button>
+                    <button class="category-btn whitespace-nowrap" data-category="aperitifs">АПЕРИТИВЫ</button>
+                    <button class="category-btn whitespace-nowrap" data-category="burgers">БУРГЕРЫ</button>
+                    <button class="category-btn whitespace-nowrap" data-category="first">ПЕРВЕ БЛЮДА</button>
+                </div>
+                <div class="flex pl-4 md:pl-8">
+                    <a href="#contact" class="category-btn whitespace-nowrap">Резервация</a>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Основное содержимое меню -->
+    <main class="max-w-4xl mx-auto px-4 md:px-8 lg:px-16 py-8">
+        <!-- Секции меню будут вставлены динамически -->
+    </main>
+
+    <!-- Секция резервации -->
+    <section id="contact" class="py-16 px-4 md:px-8 lg:px-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-medium mb-8 text-center">Забронировать столик</h2>
+            <form class="max-w-lg mx-auto space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-gray-700 mb-2">ФИО</label>
+                        <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-700 mb-2">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="date" class="block text-gray-700 mb-2">Дата</label>
+                        <input type="date" id="date" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    </div>
+                    <div>
+                        <label for="time" class="block text-gray-700 mb-2">Время</label>
+                        <input type="time" id="time" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
+                    </div>
+                </div>
+                <div>
+                    <label for="guests" class="block text-gray-700 mb-2">Количество гостей</label>
+                    <select id="guests" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        <option value="1">1 человек</option>
+                        <option value="2">2 человека</option>
+                        <option value="3">3 человека</option>
+                        <option value="4">4 человека</option>
+                        <option value="5">5+ человек</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="special-requests" class="block text-gray-700 mb-2">Особые пожелания</label>
+                    <textarea id="special-requests" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gray-800 text-white hover:bg-gray-700 transition duration-300 rounded">Забронировать</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer class="bg-gray-50 py-8 px-4 md:px-8 lg:px-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="logo text-2xl font-medium">БАЙЯ</h2>
+                    <p class="text-gray-600 mt-1">ул. Рома 123, Милан</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-gray-900">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-gray-900">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Переключатель языка -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <button id="language-toggle" class="bg-white rounded-full shadow-lg px-4 py-2 flex items-center space-x-2">
+            <span class="language-current">RU</span>
+            <i id="language-chevron" class="fas fa-chevron-down text-xs transition-transform"></i>
+        </button>
+        <div id="language-dropdown" class="hidden absolute bottom-full right-0 mb-2 w-32 bg-white rounded-lg shadow-lg overflow-hidden">
+            <button class="language-btn w-full text-left px-4 py-2 hover:bg-gray-100" data-lang="en">English</button>
+            <button class="language-btn active w-full text-left px-4 py-2 hover:bg-gray-100" data-lang="ru">Русский</button>
+        </div>
+    </div>
+
+    <script src="/shared/data/menu-data.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
