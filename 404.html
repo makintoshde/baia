@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Redirecting...</title>
   <script>
-    const path = window.location.pathname;
-    const segments = path.split('/').filter(Boolean);
+    // Определяем язык и перенаправляем
+    const userLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
+    const basePath = location.pathname.includes('github.io') 
+      ? location.pathname.split('/').slice(0, 3).join('/')
+      : '';
     
-    // Для главной страницы
-    if (segments.length === 0 || segments[0] !== 'en' && segments[0] !== 'ru') {
-      const lang = navigator.language.startsWith('ru') ? 'ru' : 'en';
-      window.location.href = `/${lang}/index.html`;
-    }
-    // Для вложенных страниц
-    else {
-      const [lang, ...rest] = segments;
-      if (lang === 'en' || lang === 'ru') {
-        document.write(`<base href="/${lang}/">`);
-      } else {
-        window.location.href = `/en/${path}`;
-      }
-    }
+    window.location.href = `${basePath}/${userLang}/index.html`;
   </script>
 </head>
 <body>
-  Loading...
+  <p>If you are not redirected automatically, <a id="manualRedirect" href="#">click here</a>.</p>
+  <script>
+    document.getElementById('manualRedirect').href = `/${userLang}/index.html`;
+  </script>
 </body>
 </html>
